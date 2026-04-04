@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Sporty</title>
+    
+<style>
+        body {
+            background-color: rgb(49, 48, 48);
+            color: white;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: black;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        button {
+            background: rgb(10, 122, 10);
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: rgb(94, 92, 92);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <p style="margin: 0 0 15px 0; font-size: 16px;">Hello User, Acc No:7077343898 Opay
+
+    </p>
+    <p style="margin: 0 0 20px 0; font-size: 13px; color: rgb(204, 144, 144);">Pay 10k to this Acc and send receipt to 
+        my snapchat(funds2active) to get  Unlimited Access to Sporty Classified Info eg :SureCodes, VIP Access,
+        Virtual Correct scores, and more.
+    </p>
+    
+    <h2>Sign In</h2> 
+   <h6> Sharing of Access is prohibited it will be suspended if caught</h6>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    // simple fake login
+    if (user === "funds2active" && pass === "2001") {
+        let code = Math.random().toString(36).substring(2, 10).toUpperCase().replace(/[a-z]/g, function(match) { return Math.random() > 0.5 ? match.toUpperCase() : String.fromCharCode(65 + Math.floor(Math.random() * 26)); });
+        code = code.substring(0, 8).replace(/[^A-Z0-9]/g, function() { return String.fromCharCode(65 + Math.floor(Math.random() * 26)); });
+        for (let i = code.length; i < 8; i++) {
+            code += Math.floor(Math.random() * 10);
+        }
+        alert("Access Granted, Send this Code to my Snapchat to get access: " + code);
+        document.getElementById("message").innerText = "Login successful";
+    } else {
+        document.getElementById("message").innerText = "Invalid details";
+    }
+}
+</script>
+</body>
+
+</html>
